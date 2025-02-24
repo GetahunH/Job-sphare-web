@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@shadcn/ui": "^0.0.4",
     "@tailwindcss/vite": "^4.0.6",
     "job-web": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.2.0",
     "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
+    "react-devtools": "^6.1.1",
     "vite": "^5.2.0"
   }
 }

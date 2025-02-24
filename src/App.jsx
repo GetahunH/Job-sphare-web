@@ -1,8 +1,18 @@
-//import React from 'react'
+
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import HomeCards from "./components/HomeCards";
+import JobListings from "./components/JobListings";
 
 const App = () => {
-  return  <div className="text-5xl">App</div>
-  
+  return (
+   <>
+   <Navbar/>
+   <Hero/>
+   <HomeCards/>
+   <JobListings/>
+   </>
+  )
 }
 
 export default App;
