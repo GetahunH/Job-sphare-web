@@ -1,30 +1,27 @@
 // import {useState, useEffect} from 'react';
-import { useParams,useLoaderData } from 'react-router-dom';
+import { useParams,useLoaderData, useNavigate } from 'react-router-dom';
 import { FaArrowLeft,FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify';
 // import Spinner from '../components/Spinner';
 
-const JobPage = () => {
+const JobPage = ({deleteJob}) => {
     const {id} = useParams();
     const job = useLoaderData();
+    const navigate = useNavigate();
 
-    // const [job, setJob] = useState(null);
-    // const [loading, setLoading] = useState(true); 
+    const onDeleteClick = ((jobId)=>{
+      const confirm = window.confirm(
+       ' Are you sure you want to delete this job list'
+        );
+        if(!confirm) return;
 
-    // useEffect (() =>{
-    //     const fetchJob = async () =>{
-    //         try{
-    //             const res = await fetch(`/api/jobs/${id}`);
-    //             const data = await res.json();
-    //             setJob(data);
-    //          }catch (error){
-    //              console.log('Error fetching data',error);
-    //          }finally{
-    //              setLoading(false);
-    //          }
-    //     };
-    //     fetchJob();
-    // },[])
+        deleteJob(jobId);
+        toast.success('Job deleted successfuly');
+
+        navigate('/jobs');
+    });
+
   return (
     <>
     <section>
@@ -121,3 +118,22 @@ const jobLoader = async ({params})=>{
 };
 
 export {JobPage as default , jobLoader};
+
+
+    // const [job, setJob] = useState(null);
+    // const [loading, setLoading] = useState(true); 
+
+    // useEffect (() =>{
+    //     const fetchJob = async () =>{
+    //         try{
+    //             const res = await fetch(`/api/jobs/${id}`);
+    //             const data = await res.json();
+    //             setJob(data);
+    //          }catch (error){
+    //              console.log('Error fetching data',error);
+    //          }finally{
+    //              setLoading(false);
+    //          }
+    //     };
+    //     fetchJob();
+    // },[])
